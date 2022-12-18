@@ -13,21 +13,21 @@ public struct Orientation {
     /// Matrix for pointy top/flat conversions
     let f0, f1, f2, f3: Double
     
-    /// Invers matrix for pointy top/flat conversions
-    let bo, b1, b2, b3: Double
+    /// Inverts matrix for pointy top/flat conversions
+    let b0, b1, b2, b3: Double
     
     /// Pointy top hexagons starts at 30° and flat top starts at 0°
     public let startAngle: Double
     
     public static let pointy = Orientation(
         f0: sqrt(3.0), f1: sqrt(3.0)/2, f2: 0.0, f3: 3.0/2.0,
-        bo: sqrt(3.0) / 3.0, b1: -1.0, b2: 0.0, b3: 2.0/3.0,
+        b0: sqrt(3.0) / 3.0, b1: -1.0 / 3.0, b2: 0.0, b3: 2.0/3.0,
         startAngle: 0.5
     )
     
     public static let flat = Orientation(
         f0: 3.0 / 2.0, f1: 0.0, f2: sqrt(3.0) / 2.0, f3: sqrt(3.0),
-        bo: 2.0 / 3.0, b1: 0.0, b2: -1.0/3.0, b3: sqrt(3.0) / 3.0,
+        b0: 2.0 / 3.0, b1: 0.0, b2: -1.0/3.0, b3: sqrt(3.0) / 3.0,
         startAngle: 0.0
     )
 }
@@ -44,16 +44,21 @@ public struct HexLayout {
         self.size = size
         self.origin = origin
     }
-    
-    // TODO: pixel_to_hex
-    
+
+    public func hex(at point: Point) throws -> Hex {
+        let relativeToCenter = Point(
+            x: (point.x - origin.x) / size.x,
+            y: (point.y - origin.y) / size.y
+        )
+
+        let q = (orientation.b0 * relativeToCenter.x) + (orientation.b1 * relativeToCenter.y)
+        let r = (orientation.b2 * relativeToCenter.x) + (orientation.b3 * relativeToCenter.y)
+
+        return try FractionalHex(q: q, r: -q, s: (-q - r)).hex()
+    }
 }
 
-/**
- Struct to hold two dimensional vectors
- 
- **Note:** CGPoint do not used to minimise dependency
- */
+/// Cross-platform type to hold two dimensional vectors
 public struct Point {
     public let x, y: Double
     
@@ -74,7 +79,8 @@ extension HexLayout {
     }
     
     public func hexCornerOffset(at index: Int) -> Point {
-        let angle = 2.0 * M_PI * (orientation.startAngle + index.double) / 6
+        let angle = 2.0 * Double.pi * (orientation.startAngle + index.double) / 6
+
         return Point(x: size.x * cos(angle), y: size.y * sin(angle))
     }
     

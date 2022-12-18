@@ -15,6 +15,7 @@
 		562419691E2564FD004F97DE /* Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562419661E2564FD004F97DE /* Hex.swift */; };
 		5624196B1E2622B0004F97DE /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624196A1E2622B0004F97DE /* Layout.swift */; };
 		5624196D1E2629B1004F97DE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5624196C1E2629B1004F97DE /* Helpers.swift */; };
+		5E1170EA294F32AF000B7619 /* FractionalHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1170E9294F32AF000B7619 /* FractionalHex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +40,9 @@
 		562419661E2564FD004F97DE /* Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hex.swift; sourceTree = "<group>"; };
 		5624196A1E2622B0004F97DE /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 		5624196C1E2629B1004F97DE /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		5624196E1E263011004F97DE /* CoreGraphicsPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CoreGraphicsPlayground.playground; sourceTree = "<group>"; };
 		566D4DC91E2659C300B22D3E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5E1170E8294F2888000B7619 /* CGPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CGPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		5E1170E9294F32AF000B7619 /* FractionalHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionalHex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				566D4DC91E2659C300B22D3E /* README.md */,
-				5624196E1E263011004F97DE /* CoreGraphicsPlayground.playground */,
+				5E1170E8294F2888000B7619 /* CGPlayground.playground */,
 				5624194A1E256487004F97DE /* AmitsHexGrid */,
 				562419551E256487004F97DE /* AmitsHexGridTests */,
 				562419491E256487004F97DE /* Products */,
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				562419661E2564FD004F97DE /* Hex.swift */,
+				5E1170E9294F32AF000B7619 /* FractionalHex.swift */,
 				5624196A1E2622B0004F97DE /* Layout.swift */,
 				562419641E2564FD004F97DE /* CoreGraphicsExtentions.swift */,
 				562419651E2564FD004F97DE /* GameplayKitExtentions.swift */,
@@ -190,6 +193,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 5624193E1E256487004F97DE;
@@ -229,6 +233,7 @@
 				5624196B1E2622B0004F97DE /* Layout.swift in Sources */,
 				562419671E2564FD004F97DE /* CoreGraphicsExtentions.swift in Sources */,
 				5624196D1E2629B1004F97DE /* Helpers.swift in Sources */,
+				5E1170EA294F32AF000B7619 /* FractionalHex.swift in Sources */,
 				562419681E2564FD004F97DE /* GameplayKitExtentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,7 +372,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.MadGeorge.AmitsHexGrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -387,7 +392,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.MadGeorge.AmitsHexGrid;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -400,7 +405,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MadGeorge.AmitsHexGridTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -413,7 +418,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.MadGeorge.AmitsHexGridTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
